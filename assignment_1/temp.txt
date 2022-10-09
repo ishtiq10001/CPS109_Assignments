@@ -1,0 +1,18 @@
+def change_element(s):
+	counter = 0
+   
+    front = ""
+    back = ""
+    access = int(input("which element do you want to switch: "))
+    what = input("wha sdo you want to replace that element with: ")
+    for i in s:
+        if (counter < access):
+            front += i
+           
+        elif (counter > access):
+            back += i
+        
+        
+        counter += 1
+    s = front + what + back
+    print(s)
