@@ -144,7 +144,7 @@ that hour(enter 6 for 6 am or 23 for 11 pm, etc): \n"""))
 
 
 
-if (__name__ == "__main__"):
+if (__name__ == "__main__"): # main function
     print("""
 This is a simple program that gives the user some options to choose from
 and solves that problem for them.
