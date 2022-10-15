@@ -39,9 +39,9 @@ def bus_schedule(bus_list): #bus schedule, takes bus list [LIST] as an argument
     
     
              
-    #letting the user decide whether they want the bus schedule at a time or
-    #they want to enter the bus number and see at what times there is that bus.        
-    #or if they want to see the whole schedule
+    #letting the user decide whether they want the bus schedule for that hour
+    #or if they want to enter the bus number and see at what times the bus is scheduled.        
+    #or if they want to see the whole bus schedule
     inp_user = input("""enter 1 to enter the time to see what bus is scheduled then
 enter 2 to enter the bus to see at what times it is scheduled
 enter 3 for the whole bus schedule
@@ -62,7 +62,7 @@ that hour(enter 6 for 6 am or 23 for 11 pm, etc): \n"""))
             elif (inp_time > 12 and inp_time < 24):#time formatting, pm if time is after noon and before midnight
                 if (twentyFour_clock == True):
                     print("All the buses for " + str(inp_time) + "00 hours\n" + bus_list[int(inp_time)])#24 hour clock format
-                elif (twentyFour_clock == False):   
+                elif (twentyFour_clock == False): #12 hour clock format 
                     print("All the buses for " + str(inp_time-12) + " pm\n" + bus_list[int(inp_time)])
                 
             elif (inp_time == 0 or inp_time == 24):#time formatting, if time is midnight
@@ -74,12 +74,12 @@ that hour(enter 6 for 6 am or 23 for 11 pm, etc): \n"""))
             else:#if time is invalid
                 print("Invalid Time")
 
-        except:
+        except:# if the user inputs an invalid time, when time < 0 or time > 24
             print("enter a valid time in the format described above")
             
     #2             
     elif (inp_user == str(2)):#if user input is 1, promt them to input the bus number
-        inp_bus = input("""enter the bus number to see when the bus is scheduled \n""")
+        inp_bus = input("""enter the bus number to see when the bus is scheduled \n""") # user input
         counter = 0
         
         for char in bus_list:
