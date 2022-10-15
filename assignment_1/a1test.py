@@ -177,7 +177,7 @@ The output is in in 12 hour format
     while not False: 
         bus_schedule(busList) # calling our bus schedule function
         if input("press enter to continue or enter exit to quit\n") == "exit": 
-            break #after our app has finished its job it asks the user if they want to exit the app or keep running
+            break #after the app has finished its job it asks the user if they want to exit the app or keep running
         else:
             pass #if the user doesnt want to exit, it just simply goes back to the loop and runs the app again
         
