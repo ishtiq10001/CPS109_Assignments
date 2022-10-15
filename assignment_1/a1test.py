@@ -5,12 +5,12 @@ from random import * #importing random module for shuffle
 This is a simple program that shows the user a bus schedule
 
 User inputs a time and the program shows the bus schedule for that time
-OR - user inputs a specific bus and the program gives the times for that bus 
+OR - user inputs a specific bus and the program gives the all the times the bus is scheduled for 
 OR - user gets the whole bus schedule
 
 Notes on using this program:
 
-Enter the time in 24 hour and single digit format.
+Enter the time in 24 hour and single/double digit format.
 For example: 1 pm would simply be 13 and midnight would be 0
 
 Enter bus number in this format with no spaces:
