@@ -1,0 +1,166 @@
+Specific Inputs
+output:
+This is a simple program that gives the user some options to choose from
+and solves that problem for them.
+Bus Schedule List
+- user inputs a time and the program shows the bus schedule for that time
+OR - user inputs a specific bus and the program gives the times for that bus 
+OR - user gets the whole bus schedule
+Notes on using this program:
+Enter the time in 24 hour and single digit format.
+For example: 1 pm would simply be 13 and midnight would be 0
+Enter bus number in this format with no spaces:
+17D
+The output is in in 12 hour format
+
+
+CASE 1
+output: 
+enter 0 for 12 hour and 1 for 24 hour clock for the output
+input: "1"
+
+output: 
+enter 1 to enter the time to see what bus is scheduled then
+enter 2 to enter the bus to see at what times it is scheduled
+enter 3 for the whole bus schedule
+
+input: "1"
+output: 
+enter the hour of the day to see the bus schedule at
+that hour(enter 6 for 6 am or 23 for 11 pm, etc):
+
+input: "16"
+output: 
+All the buses for 1600 hours
+6C,17B,12A
+press enter to continue or enter exit to quit
+
+input: ENTER
+output: 
+enter 0 for 12 hour and 1 for 24 hour clock for the output
+
+CASE 2
+output:
+enter 0 for 12 hour and 1 for 24 hour clock for the output
+
+input: "1"
+
+output: 
+enter 1 to enter the time to see what bus is scheduled then
+enter 2 to enter the bus to see at what times it is scheduled
+enter 3 for the whole bus schedule
+
+input: "2"
+
+output:
+enter the bus number to see when the bus is scheduled
+
+input: "17"
+
+output:
+17 is scheduled at 0300 hours
+17 is scheduled at 1300 hours
+17 is scheduled at 1500 hours
+17 is scheduled at 1600 hours
+17 is scheduled at 1700 hours
+17 is scheduled at 1800 hours
+17 is scheduled at 2100 hours
+press enter to continue or enter exit to quit
+
+input: ENTER
+
+CASE 3:
+output: 
+enter 0 for 12 hour and 1 for 24 hour clock for the output
+input: "1"
+
+output: 
+enter 1 to enter the time to see what bus is scheduled then
+enter 2 to enter the bus to see at what times it is scheduled
+enter 3 for the whole bus schedule
+
+input: "3"
+output: 
+Buses for midnight: 70C,20B
+Buses for 0100 hours: 19A,70C,15D
+Buses for 0200 hours: 19B,19C,21D
+Buses for 0300 hours: 17C,19A,21D
+Buses for 0400 hours: 16C,19A,21D
+Buses for 0500 hours: 19A,21D
+Buses for 0600 hours: 77A,21D,24A
+Buses for 0700 hours: 9B,7B,12B
+Buses for 0800 hours: 67C,293,256C
+Buses for 0900 hours: 7C,6D,5B
+Buses for 1000 hours: 16C,9A,19C
+Buses for 1100 hours: 19A,15D
+Buses for noon: 67C,181
+Buses for 1300 hours: 9C,17C,15D
+Buses for 1400 hours: 
+Buses for 1500 hours: 17C,19A,21D
+Buses for 1600 hours: 6C,17B,12A
+Buses for 1700 hours: 12B,17C
+Buses for 1800 hours: 17C,15B
+Buses for 1900 hours: 9C,7C,15D
+Buses for 2000 hours: 19B,19C,12D
+Buses for 2100 hours: 19C,18D,17D
+Buses for 2200 hours: 70C,20A,19B
+Buses for 2300 hours: 19C,256
+press enter to continue or enter exit to quit
+
+input: exit
+
+_______________ end of program ___________________
+
+
+General inputs 
+ 
+Input 1: 
+> if the user inputs 0: the output is shown in 12 hour format
+or 
+> if the user inputs anything else: the output is shown in 24 hour format
+
+Input 2: 
+> if the user inputs 1, then they are prompted to enter the time to see what bus is scheduled then 
+or
+> if the user inputs 2, then they are prompted to enter the bus to see at what times it is scheduled
+or
+> if the user inputs 3, then they are shown the whole bus schedule
+
+Input 3:
+Depending on the second input, the user either enters the 
+time of the bus or the bus number or gets the whole schedule
+
+Case 1: 
+> if the user input was 1 for the second input:
+  > user inputs the time
+  > the program outputs what buses are scheduled at that time
+Case 2:
+> if the user input was 2 for the second input:
+  > user inputs the bus number
+  > the program outputs at what times the bus is scheduled at
+Case 3:
+> if the user input was 3 for the second input:
+  > the program outputs the entire bus schedule
+
+Input 4: 
+
+> the user either exits the program by typing "exit"
+or 
+> the user inputs anything, or presses enter to continue running the program
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
