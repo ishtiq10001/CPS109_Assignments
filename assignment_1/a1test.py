@@ -140,7 +140,7 @@ that hour(enter 6 for 6 am or 23 for 11 pm, etc): \n"""))
     #exception, wrong input format
     else:
         print("enter a valid input")
-        bus_schedule()
+        bus_schedule(bus_list)
 
 
 
