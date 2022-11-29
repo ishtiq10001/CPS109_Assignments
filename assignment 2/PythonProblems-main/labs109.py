@@ -97,7 +97,23 @@ def candy_share(candies):
                 candies[j] -= 2
                 candies[j+1] +=1
                 candies[j-1] +=1
-
-
-        
         counter +=1
+
+def remove_after_kth(items,k):#question 45
+    item_dict = {}
+    r_list = []
+    counter = 0
+    for i in items:
+        if i in item_dict:
+            counter = item_dict[i]
+            counter +=1
+            item_dict[i] = counter
+            if counter <= k:
+                r_list.append(i)
+
+        else:
+            item_dict[i] = 1
+            counter = item_dict[i]
+            if counter <= k:
+                r_list.append(i)
+    return(r_list)
