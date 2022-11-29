@@ -1,6 +1,7 @@
 import random
 import math
-
+from collections import deque
+from fractions import Fraction
 def question_4(n):
     for i in n:
         if (int(i) % 2 == 0):
@@ -102,10 +103,24 @@ def remove_after_kth(items,k):#question 45
     return(r_list)
 
 
+def calkin_wilf(n):#question 57
 
+    p = 1
+    q = 1
+    a = deque()
+    a.append(Fraction(p/q))
 
+    for i in range(n):
+        g = Fraction(a.popleft())
 
+        p = Fraction(g.numerator)
+        q = Fraction(g.denominator)
+        a.append(p/(p+q))
+        a.append((p+q)/q)
 
+        #
+        if i == n-1:
+            return g
 
 
 
@@ -116,3 +131,4 @@ if __name__ == "__main__":
     #print(question_27([99, 42, 17, 7, 1, 9, 12, 77, 15]))
     #print(candy_share([5, 1, 0, 0, 0, 0, 0, 1, 0]))
     #print(remove_after_kth([1, 1, 1, -4], 1))
+    print(calkin_wilf(1000))

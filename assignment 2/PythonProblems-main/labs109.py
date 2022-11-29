@@ -2,7 +2,8 @@
 # the first problem "Ryerson Letter Grade":
 import random
 import math
-
+from collections import deque
+from fractions import Fraction
 
 ##def ryerson_letter_grade(n):
 ##    if n < 50:
@@ -117,3 +118,21 @@ def remove_after_kth(items,k):#question 45
             if counter <= k:
                 r_list.append(i)
     return(r_list)
+
+def calkin_wilf(n):#question 57
+    p = 1
+    q = 1
+    deq_frac = deque()
+    deq_frac.append(Fraction(p/q))
+
+    for i in range(n):
+        g = Fraction(deq_frac.popleft())
+
+        p = Fraction(g.numerator)
+        q = Fraction(g.denominator)
+        deq_frac.append(p/(p+q))
+        deq_frac.append((p+q)/q)
+
+        #
+        if i == n-1:
+            return g
