@@ -44,11 +44,11 @@ def knight_jump(knight, start, end):
             l_knight.pop(l_knight.index(d))
             if len(l_knight) == 0:
                 return True
-            
+
         else:
             return False
 
-        
+
 def tukeys_ninthers(items):
     def med(L):#finds the median between 3 numbers
         a = L[0]
@@ -74,7 +74,30 @@ def tukeys_ninthers(items):
         L = L[3:len(L)]
         L.append(temp)
         return tukeys_ninthers(L)
-     
-          
+
+def candy_share(candies):
+    counter = 0
+    while True:
+        cand_i = []
+        for i in range(len(candies)):
+            if candies[i] > 1:
+                cand_i.append(i)
+        if len(cand_i) == 0:
+            return counter
+        for j in cand_i:
+            if j == 0:
+                candies[j] -= 2
+                candies[j+1] +=1
+                candies[-1] +=1
+            elif j == len(candies)-1:
+                candies[j] -= 2
+                candies[j-1] +=1
+                candies[0] +=1
+            else:
+                candies[j] -= 2
+                candies[j+1] +=1
+                candies[j-1] +=1
 
 
+        
+        counter +=1
