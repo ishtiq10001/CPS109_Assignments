@@ -123,7 +123,37 @@ def calkin_wilf(n):#question 57
             return g
 
 
-
+def postfix_evaluate(items):
+    itms_new = []
+    a = 0
+    b = 0
+    for i in items:
+        if type(i) is int:
+            itms_new.append(i)
+        else:
+            if i == '+':
+                a = 0
+                for j in range(len(itms_new)):
+                    a += itms_new.pop(len(itms_new)-1)
+                itms_new.append(a)
+            elif i == '*':
+                a = 0
+                for j in range(len(itms_new)):
+                    a = a*itms_new.pop(len(itms_new)-1)
+                itms_new.append(a)
+                print()
+            elif i == '-':
+                a = 0
+                for j in range(len(itms_new)):
+                    a = a-itms_new.pop(len(itms_new)-1)
+                itms_new.append(a)
+            elif i == '/':
+                a = 0
+                for j in range(len(itms_new)):
+                    a = a//itms_new.pop(len(itms_new)-1)
+                itms_new.append(a)
+        print(itms_new)
+    return a
 
 if __name__ == "__main__":
     #print(question_4("13592"))
@@ -131,4 +161,5 @@ if __name__ == "__main__":
     #print(question_27([99, 42, 17, 7, 1, 9, 12, 77, 15]))
     #print(candy_share([5, 1, 0, 0, 0, 0, 0, 1, 0]))
     #print(remove_after_kth([1, 1, 1, -4], 1))
-    print(calkin_wilf(1000))
+    #print(calkin_wilf(1000))
+    print(postfix_evaluate([2,4,5,'*']))
