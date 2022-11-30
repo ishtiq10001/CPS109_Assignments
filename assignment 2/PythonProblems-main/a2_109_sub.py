@@ -123,36 +123,35 @@ def calkin_wilf(n):#question 57
             return g
 
 
-def postfix_evaluate(items):
+def postfix_evaluate(items):#question 62
     itms_new = []
-    a = 0
-    b = 0
+    a = 1
+
     for i in items:
         if type(i) is int:
             itms_new.append(i)
+            a = i
         else:
             if i == '+':
-                a = 0
-                for j in range(len(itms_new)):
-                    a += itms_new.pop(len(itms_new)-1)
-                itms_new.append(a)
+                a = itms_new.pop(-2) + itms_new.pop(-1)
+
             elif i == '*':
-                a = 0
-                for j in range(len(itms_new)):
-                    a = a*itms_new.pop(len(itms_new)-1)
-                itms_new.append(a)
-                print()
+                a = itms_new.pop(-2) * itms_new.pop(-1)
+
             elif i == '-':
-                a = 0
-                for j in range(len(itms_new)):
-                    a = a-itms_new.pop(len(itms_new)-1)
-                itms_new.append(a)
+                a = itms_new.pop(-2) - itms_new.pop(-1)
+
             elif i == '/':
-                a = 0
-                for j in range(len(itms_new)):
-                    a = a//itms_new.pop(len(itms_new)-1)
-                itms_new.append(a)
-        print(itms_new)
+                p = itms_new.pop(-2)
+                q = itms_new.pop(-1)
+                if q == 0:
+                    a = 0
+                else:
+                    a = p // q
+
+
+            itms_new.append(a)
+            print(itms_new)
     return a
 
 if __name__ == "__main__":
@@ -162,4 +161,5 @@ if __name__ == "__main__":
     #print(candy_share([5, 1, 0, 0, 0, 0, 0, 1, 0]))
     #print(remove_after_kth([1, 1, 1, -4], 1))
     #print(calkin_wilf(1000))
-    print(postfix_evaluate([2,4,5,'*']))
+    print(postfix_evaluate([4, 5, 7, '*', '/']))
+    print(4//35)

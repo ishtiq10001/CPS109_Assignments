@@ -26,7 +26,7 @@ from fractions import Fraction
 
 
 
-def only_odd_digits(n):
+def only_odd_digits(n): #question 4
     for i in str(n):
         if (int(i) % 2 == 0):
             return False
@@ -36,7 +36,7 @@ def only_odd_digits(n):
 
     return True
 
-def knight_jump(knight, start, end):
+def knight_jump(knight, start, end): #question 17
     l_knight = list(knight)
     d = 0
     for i in range(len(start)):
@@ -50,7 +50,7 @@ def knight_jump(knight, start, end):
             return False
 
 
-def tukeys_ninthers(items):
+def tukeys_ninthers(items): # question 27
     def med(L):#finds the median between 3 numbers
         a = L[0]
         b = L[1]
@@ -76,7 +76,7 @@ def tukeys_ninthers(items):
         L.append(temp)
         return tukeys_ninthers(L)
 
-def candy_share(candies):
+def candy_share(candies): #question 39
     counter = 0
     while True:
         cand_i = []
@@ -100,7 +100,7 @@ def candy_share(candies):
                 candies[j-1] +=1
         counter +=1
 
-def remove_after_kth(items,k):#question 45
+def remove_after_kth(items,k): #question 45
     item_dict = {}
     r_list = []
     counter = 0
@@ -119,7 +119,7 @@ def remove_after_kth(items,k):#question 45
                 r_list.append(i)
     return(r_list)
 
-def calkin_wilf(n):#question 57
+def calkin_wilf(n): #question 57
     p = 1
     q = 1
     deq_frac = deque()
@@ -136,3 +136,32 @@ def calkin_wilf(n):#question 57
         #
         if i == n-1:
             return g
+
+def postfix_evaluate(items): #question 62
+    itms_new = []
+    a = 1
+
+    for i in items:
+        if type(i) is int:
+            itms_new.append(i)
+            a = i
+        else:
+            if i == '+':
+                a = itms_new.pop(-2) + itms_new.pop(-1)
+
+            elif i == '*':
+                a = itms_new.pop(-2) * itms_new.pop(-1)
+
+            elif i == '-':
+                a = itms_new.pop(-2) - itms_new.pop(-1)
+
+            elif i == '/':
+                p = itms_new.pop(-2)
+                q = itms_new.pop(-1)
+                if q == 0:
+                    a = 0
+                else:
+                    a = p // q
+            itms_new.append(a)
+
+    return itms_new[0]
