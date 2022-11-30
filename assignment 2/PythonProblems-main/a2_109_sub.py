@@ -152,7 +152,7 @@ def postfix_evaluate(items):#question 62
 
             itms_new.append(a)
             print(itms_new)
-    return a
+    return itms_new[0]
 
 if __name__ == "__main__":
     #print(question_4("13592"))
