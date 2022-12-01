@@ -206,3 +206,32 @@ def sort_by_digit_count(items): #question 77
                 break
         counter+=1 #keeping track of the index
     return items
+
+def frequency_sort(items):#question 85
+    items.sort()
+    n = {}
+    g = []
+    p = []
+    temp = (0,0)
+    if len(items) == 1:
+        return items
+
+    for ind in items:
+        elem = items.count(ind)
+        if ind not in n:
+            n[ind] = elem
+
+    for x,y in n.items():
+        g.append((x,y))
+
+    for sr in g:
+        for m in g:
+            if sr[1]<m[1]:
+                temp = sr
+                sr = m
+                m = temp
+
+    for i in g:
+        for j in range(i[1]):
+            p.append(i[0])
+    return p
