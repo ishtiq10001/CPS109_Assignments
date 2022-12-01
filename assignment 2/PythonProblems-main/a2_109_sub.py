@@ -196,6 +196,24 @@ def sort_by_digit_count(items): #question 77
         counter+=1 #keeping track of the index
     return items
 
+def frequency_sort(items):
+    n = {}
+    s = {}
+    g = []
+    for ind in items:
+        elem = items.count(ind)
+        if ind not in n:
+            n[ind] = elem
+
+    s = sorted(n.items(), key=lambda x:x[1],reverse=True)
+    print(s)
+    for i in s:
+        s1 = i[1]
+        for j in range(s1):
+            g.append(i[0])
+
+    return g
+
 
 
 if __name__ == "__main__":
@@ -207,4 +225,5 @@ if __name__ == "__main__":
     #print(calkin_wilf(1000))
     #print(postfix_evaluate([4, 5, 7, '*', '/']))
     #print(4//35)
-    print(sort_by_digit([111, 19, 919, 1199, 911,999]))
+    #print(sort_by_digit([111, 19, 919, 1199, 911,999]))
+    print(frequency_sort(['bob','bob','carl','alex','bob']))
