@@ -4,27 +4,9 @@ import random
 import math
 from collections import deque
 from fractions import Fraction
-
-##def ryerson_letter_grade(n):
-##    if n < 50:
-##        return 'F'
-##    elif n > 89:
-##        return 'A+'
-##    elif n > 84:
-##        return 'A'
-##    elif n > 79:
-##        return 'A-'
-##    tens = n // 10
-##    ones = n % 10
-##    if ones < 3:
-##        adjust = "-"
-##    elif ones > 6:
-##        adjust = "+"
-##    else:
-##        adjust = ""
-##    return "DCB"[tens - 5] + adjust
-
-
+'''
+Questions 4,12,17,27,39,45,57,62,77,85
+'''
 
 def only_odd_digits(n): #question 4
     for i in str(n):
@@ -35,6 +17,20 @@ def only_odd_digits(n): #question 4
                 pass
 
     return True
+
+def give_change(amount,coins): #question 12
+    curr_a = amount #current amount
+    change = []
+    for i in coins:
+        num_c = curr_a // i
+        if num_c <= 0:
+            continue
+        else:
+            curr_a -= num_c*i
+            for n in range(num_c):
+                change.append(i)
+
+    return change
 
 def knight_jump(knight, start, end): #question 17
     l_knight = list(knight)
@@ -179,7 +175,7 @@ def sort_by_digit_count(items): #question 77
             counter = 0 #reset counter
         if t_sorted == len(items):#if the number of times we've gone through the list without sorting is
             break                   #equal to the number of items, that means we have sorted everything
-        while True:#run the loop as long as digit is more than 0, 9 is compared first because it has the most weight
+        while True:#run the loop as long as digit is more than -1, 9 is compared first because it has the most weight
             if dig == -1:
                 if p == q:
                     if items[counter] > items [counter+1]:
@@ -208,30 +204,36 @@ def sort_by_digit_count(items): #question 77
     return items
 
 def frequency_sort(items):#question 85
-    items.sort()
-    n = {}
-    g = []
-    p = []
+    items.sort() #sorting the items before hand to ensure the order of items in case of the frequency being the same
+    count_dict = {}
+    unsorted_list = []
+    sorted_list = []
     temp = (0,0)
     if len(items) == 1:
         return items
 
     for ind in items:
         elem = items.count(ind)
-        if ind not in n:
-            n[ind] = elem
+        if ind not in count_dict:
+            count_dict[ind] = elem
 
-    for x,y in n.items():
-        g.append((x,y))
+    for k,v in count_dict.items():
+        unsorted_list.append((k,v))
 
-    for sr in g:
-        for m in g:
-            if sr[1]<m[1]:
-                temp = sr
-                sr = m
-                m = temp
 
-    for i in g:
+    for sr in range(len(unsorted_list)):
+        for m in range(sr+1, len(unsorted_list)):
+            if unsorted_list[sr][1]<unsorted_list[m][1]:
+                temp = unsorted_list[sr]
+                unsorted_list[sr] = unsorted_list[m]
+                unsorted_list[m] = temp
+            elif unsorted_list[sr][1]==unsorted_list[m][1]:
+                if unsorted_list[sr][0]>unsorted_list[m][0]:
+                    temp = unsorted_list[sr]
+                    unsorted_list[sr] = unsorted_list[m]
+                    unsorted_list[m] = temp
+
+    for i in unsorted_list:
         for j in range(i[1]):
-            p.append(i[0])
-    return p
+            sorted_list.append(i[0])
+    return sorted_list

@@ -2,6 +2,7 @@ import random
 import math
 from collections import deque
 from fractions import Fraction
+
 def question_4(n):
     for i in n:
         if (int(i) % 2 == 0):
@@ -210,20 +211,45 @@ def frequency_sort(items):#question 85
         if ind not in n:
             n[ind] = elem
 
-    for x,y in n.items():
-        g.append((x,y))
+    for keY,vaL in n.items():
+        g.append((keY,vaL))
 
-    for sr in g:
-        for m in g:
-            if sr[1]<m[1]:
-                temp = sr
-                sr = m
-                m = temp
+
+    for sr in range(len(g)):
+        for m in range(sr+1, len(g)):
+            if g[sr][1]<g[m][1]:
+                temp = g[sr]
+                g[sr] = g[m]
+                g[m] = temp
+            elif g[sr][1]==g[m][1]:
+                if g[sr][0]>g[m][0]:
+                    temp = g[sr]
+                    g[sr] = g[m]
+                    g[m] = temp
 
     for i in g:
         for j in range(i[1]):
             p.append(i[0])
     return p
+
+
+def give_change(amount,coins): #question 12
+    curr_a = amount #current amount
+    change = []
+    for i in coins:
+        num_c = curr_a // i
+        if num_c <= 0:
+            continue
+        else:
+            curr_a -= num_c*i
+            for n in range(num_c):
+                change.append(i)
+
+    return change
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -236,4 +262,5 @@ if __name__ == "__main__":
     #print(postfix_evaluate([4, 5, 7, '*', '/']))
     #print(4//35)
     #print(sort_by_digit([111, 19, 919, 1199, 911,999]))
-    print(frequency_sort(['bob','bob','carl','alex','bob']))
+    #print(frequency_sort([1,-2]))
+    print(give_change(123,[100, 25, 10, 5, 1]))
